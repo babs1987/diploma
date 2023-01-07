@@ -21,23 +21,20 @@ def index(request):
             pprint(form.cleaned_data)
             ff=form.cleaned_data
 
-
-            # new_trainer=Trainer(
-            #     first_name=ff["first_name"],
-            #     last_name=ff["last_name"],
-            #     team=ff["team"],
-            #     #students=ff['students']
-            #)
-
-
-            new_trainer=Trainer.objects.create(first_name=ff["first_name"],last_name=ff["last_name"],team=ff["team"])
-            print("*******")
-            print(type(ff['students']))
-            new_trainer.students.set(ff['students'][0])
-
-            # new_trainer.add(ff['students'])
-
+            new_trainer=Trainer(
+                first_name=ff["first_name"],
+                last_name=ff["last_name"],
+                team=ff["team"],
+                #students=ff['students']
+            )
             new_trainer.save()
+            new_trainer.students.add(ff['students'])
+            new_trainer.save()
+
+           # new_trainer=Trainer.objects.create(first_name=ff["first_name"],last_name=ff["last_name"],team=ff["team"])
+            print("*******")
+
+
             return HttpResponseRedirect(request.path)
 
 

@@ -16,8 +16,7 @@ class Armwrestler(models.Model):
     sex = models.CharField(max_length=3, default='m')
     team = models.CharField(max_length=100, default="not")
     weight_category = models.CharField(max_length=4, default='60')
-    trainers = models.ManyToManyField('Trainer')
-    styles: ['ArmStyles']
+    #styles: ['ArmStyles']
 
     @property
     def en_view(self):
@@ -32,6 +31,7 @@ class Trainer(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     team = models.CharField(max_length=99)
+
     students = models.ManyToManyField(Armwrestler)
 
     @property
