@@ -37,7 +37,7 @@ class Trainer(models.Model):
     @property
     def en_view(self):
         fortrans = f'{self.last_name}{self.first_name}{self.id}'.lower()
-        return translit(fortrans, reversed=True)
+        return translit(fortrans, reversed=True).replace("'","")
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

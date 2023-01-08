@@ -5,9 +5,10 @@ class TrainerForm(forms.Form):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
     team = forms.CharField(max_length=99)
-    students = forms.ModelChoiceField(
+    students = forms.ModelMultipleChoiceField(
         queryset=Armwrestler.objects.all(),
-        widget=forms.Select
+
+        #widget=forms.SelectMultiple,
     )
 from django import forms
 

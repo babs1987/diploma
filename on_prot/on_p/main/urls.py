@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import index, trainers
+from .views import index, trainers, list_of_trainers
 from .models import Armwrestler, Trainer
 
 urlpatterns = [
     path('', index, name='main'),
-    path('trainers', trainers, name='trs'),
+    path('trainers',list_of_trainers, name='sps')
+
 ]
 
 for trainer in Trainer.objects.all():
@@ -13,3 +14,5 @@ for trainer in Trainer.objects.all():
              trainers,
              kwargs={'pk': trainer.id})
     ]
+
+

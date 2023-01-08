@@ -11,16 +11,22 @@ from .forms import TrainerForm
 
 
 
+def list_of_trainers(request):
+    return render(request,'main/trainers.html',{
+        "trs": Trainer.objects.all()
+    })
 
 def index(request):
     if request.method == 'GET':
-        return render(request, 'main/index.html', {"trs": Trainer.objects.all(), 'form': TrainerForm()})
+        return render(request, 'main/index.html', {
+            'form': TrainerForm(),
+                      })
     elif request.method=='POST':
         form = TrainerForm(request.POST)
-        if form.is_valid():
-            pprint(form.cleaned_data)
-            ff=form.cleaned_data
 
+        if form.is_valid():
+            ff=form.cleaned_data
+            print(ff)
             new_trainer=Trainer(
                 first_name=ff["first_name"],
                 last_name=ff["last_name"],
@@ -28,14 +34,12 @@ def index(request):
                 #students=ff['students']
             )
             new_trainer.save()
-            new_trainer.students.add(ff['students'])
-            new_trainer.save()
+            for stud in ff['students']:
+                new_trainer.students.add(stud)
+                new_trainer.save()
 
-           # new_trainer=Trainer.objects.create(first_name=ff["first_name"],last_name=ff["last_name"],team=ff["team"])
-            print("*******")
-
-
-            return HttpResponseRedirect(request.path)
+        print(request.path)
+        return HttpResponseRedirect(request.path)
 
 
 
