@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Armwrestler)
 admin.site.register(ArmStyles)
 admin.site.register(Trainer)
+admin.site.register(TournamentRegistration)

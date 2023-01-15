@@ -1,10 +1,12 @@
 from django.urls import path
-from .views import index, trainers, list_of_trainers
+from .views import tr_register, trainers, list_of_trainers, index, tournament
 from .models import Armwrestler, Trainer
 
 urlpatterns = [
     path('', index, name='main'),
-    path('trainers',list_of_trainers, name='sps')
+    path('tr_register', tr_register, name='tr_reg'),
+    path('trainers',list_of_trainers, name='sps'),
+    path('tournament',tournament, name='trmt'),
 
 ]
 

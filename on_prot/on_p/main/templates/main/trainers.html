@@ -3,14 +3,19 @@
 {% block title %}
     Титульник
 {% endblock %}
-{% block style_home %}
+{% block style_index %}
    class="nav-link link-dark"
 {% endblock %}
 
+{% block style_reg %}
+    class="nav-link link-dark"
+{% endblock %}
 {% block style_trainers %}
     class="nav-link active"
 {% endblock %}
-
+{% block style_tournament %}
+    class="nav-link link-dark"
+{% endblock %}
 {% block body %}
         {% for tr in trs %}
 {#        <div class="alert alert-warning mt-3">#}

@@ -12,7 +12,7 @@
 
 {% block body %}
     <p> Спортсмены тренера: <h3>{{ trainer }}</h3></p>
-    {% for sp in trainer.students.all %}
+    {% for sp in trainer.armwrestler_set.all %}
         <div class="alert alert-warning mt-2">
             <p>Спортсмен: {{ sp.last_name }}
                 {{ sp.first_name }}

@@ -1,27 +1,23 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-    Регистрация тренера
+    Титульник
 {% endblock %}
-{% block style_trainers %}
-class="nav-link link-dark"
+{% block style_index %}
+   class="nav-link active"
 {% endblock %}
-{% block style_home %}
-    class="nav-link active"
-{% endblock %}
-{% block body %}
-{#class="form-inline"#}
-    <form  action="" method="post">
-        {% csrf_token %}
-        <div class="all_forms border border-success p-4">
-            <h3>Поле регистрации Тренера</h3>
-            {% for field in form %}
-                {{ field.label_tag }}
-                {{ field }}
-                <br>
-            {% endfor %}
-            <input class="btn btn-primary" type="submit" value="Submit">
-        </div>
 
-    </form>
+{% block style_reg %}
+    class="nav-link link-dark"
+{% endblock %}
+
+{% block style_trainers %}
+    class="nav-link link-dark"
+{% endblock %}
+{% block style_tournament %}
+    class="nav-link link-dark"
+{% endblock %}
+
+{% block body %}
+
 {% endblock %}
